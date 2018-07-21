@@ -1,0 +1,28 @@
+{
+  "intents": [
+    {
+      "intent": "Test"
+    },
+    {
+      "intent": "FlightSearch"
+    },
+    {
+      "slots": [
+        {
+          "name": "Input",
+          "type": "LIST_OF_MEDIA_INPUTS"
+        }
+      ],
+      "intent": "SwitchInput"
+    },
+    {
+      "slots": [
+        {
+          "name": "DisplayDevice",
+          "type": "LIST_OF_DISPLAY_DEVICES"
+        }
+      ],
+      "intent": "AssetSummary"
+    }
+  ]
+}

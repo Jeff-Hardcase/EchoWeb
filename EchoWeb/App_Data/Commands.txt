@@ -1,0 +1,15 @@
+Test Are you working
+Test For a status report
+Test For a quote
+SwitchInput Switch to {Input}
+SwitchInput Switch Input to {Input}
+SwitchInput Change to {Input}
+SwitchInput Change Input to {Input}
+SwitchInput Watch {Input}
+SwitchInput Bring up the {Input}
+FlightSearch Search for flights
+FlightSearch Find flights
+AssetSummary Show my Asset Summary
+AssetSummary Show my Asset Summary on {DisplayDevice}
+AssetSummary Show my Bitcoin
+AssetSummary Show my Bitcoin on {DisplayDevice}

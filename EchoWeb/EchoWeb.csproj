@@ -149,12 +149,19 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AlexaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JarvisController.cs" />
     <Compile Include="Controllers\UltronController.cs" />
+    <Compile Include="Extensions\StringExtension.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Google\DeviceRequest.cs" />
+    <Compile Include="Models\Google\DeviceResponse.cs" />
+    <Compile Include="Models\Repositories\AssetDisplayRepository.cs" />
+    <Compile Include="Models\Repositories\FlightRepository.cs" />
     <Compile Include="Models\Repositories\WebServiceRepository.cs" />
     <Compile Include="Models\Repositories\YamahaAV_Repository.cs" />
+    <Compile Include="Models\SpeechResponseModel.cs" />
     <Compile Include="Models\testModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">

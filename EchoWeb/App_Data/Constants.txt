@@ -1,0 +1,19 @@
+LIST_OF_MEDIA_INPUTS
+Cable
+Computer
+PC
+FireTV
+Amazon
+Apple
+Playstation
+Console
+Radio
+ChromeCast
+Bluetooth
+
+LIST_OF_DISPLAY_DEVICES
+Living Room
+Frankenstein
+Man Cave
+Darth Vader
+Bed Room

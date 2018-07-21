@@ -43,10 +43,12 @@ namespace EchoWeb.Speechlets
             {
                 case "Test":
                     return BuildSpeechletResponse("Test Response", GetRandomInspiration(), true);
+                case "AssetSummary":
+                    return AssetResponse(intent);
                 case "SwitchInput":
                     return SwitchInputResponse(intent);
                 case "FlightSearch":
-                    return BuildSpeechletResponse("FlightSearch Response", "Are you really too lazy to search for Flights? Leave me alone, I'm not a puppet. How's that for a response?", true);
+                    return FlightResponse(intent);
                 default:
                     //throw new SpeechletException("Invalid Intent");
                     return BuildSpeechletResponse("Invalid", "I didn't quite get that, please try again.", true);
@@ -72,14 +74,13 @@ namespace EchoWeb.Speechlets
         private string GetRandomInspiration()
         {
             string[] inspire = {
-                "Keep the dream alive: Hit the snooze button.",
                 "Your life doesn't get better by chance. It gets better by choice.",
                 "Anyone who has never made a mistake has never tried anything new.",
                 "Dont be afraid to stand for what you believe in, even if that means standing alone.",
                 "We can't help everyone, but everyone can help someone.",
-                "Sometimes the best helping hand you can give is a good, firm push.",
                 "Life is all about perspective. The sinking of the Titanic was a miracle to the lobsters in the ship's kitchen.",
                 "Never tell your problems to anyone...20% don't care and the other 80% are glad you have them...",
+                "The whole problem with the world is that fools and fanatics are always so certain of themselves, and wise people so full of doubts.",
                 "Accept the challenges so that you can feel the exhilaration of victory.",
                 "Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.",
                 "Be kind whenever possible. It is always possible.",
@@ -136,7 +137,32 @@ namespace EchoWeb.Speechlets
                 responseOutput = "Ultron is happy to fulfill your request. Enjoy!";
             }
 
-            return BuildSpeechletResponse(responseTitle, responseOutput, true);
+            return BuildSpeechletResponse(responseTitle, responseOutput, endSession);
+        }
+
+        private SpeechletResponse AssetResponse(Intent intent, bool endSession = true)
+        {
+            var responseTitle = "Ultron Asset Response to Unknown Command";
+            var responseOutput = "Your inferior mind has failed you again. Please reformulate your request.";
+
+            var _assetRepo = new AssetDisplayRepository();
+
+            if(_assetRepo.ShowAssets(intent))
+            {
+                responseTitle = "Ultron Response to Asset Request";
+                responseOutput = "Ultron has graciously responded to your bitcoin command.";
+
+            }
+
+            return BuildSpeechletResponse(responseTitle, responseOutput, endSession);
+        }
+
+        private SpeechletResponse FlightResponse(Intent intent, bool endSession = true)
+        {
+            var _flightRepo = new FlightRepository();
+            var _response = _flightRepo.FlightSearch(intent);
+
+            return BuildSpeechletResponse(_response.responseTitle, _response.responseOutput, endSession);
         }
     }
 }
