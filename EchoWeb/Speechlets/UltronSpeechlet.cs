@@ -131,7 +131,7 @@ namespace EchoWeb.Speechlets
             var responseTitle = "Response to Unknown Command";
             var responseOutput = "I'm sorry, Ultron cannot interpret your feeble mind's request. Please try again.";
 
-            if (_yamaha.SwitchInput(intent))
+            if (_yamaha.SetInput(intent))
             {
                 responseTitle = "Ultron Response to Switch";
                 responseOutput = "Ultron is happy to fulfill your request. Enjoy!";

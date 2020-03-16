@@ -27,19 +27,24 @@ namespace EchoWeb.Models.Repositories
     {
         private WebServiceRepository _wsRepo = new WebServiceRepository();
 
-        public bool SwitchInput(Intent intent)
+        public bool SetInput(Intent intent)
+        {
+            return SetInput(intent.Slots["Input"].Value);
+        }
+
+        public bool SetInput(string target)
         {
             var result = false;
             var caseIgnore = true;
             YamahaInputs avInput;
 
-            if (Enum.TryParse(intent.Slots["Input"].Value, caseIgnore, out avInput))
-                result = SwitchInput(avInput);
+            if (Enum.TryParse(target, caseIgnore, out avInput))
+                result = SetInput(avInput);
 
             return result;
         }
 
-        public bool SwitchInput(YamahaInputs input)
+        public bool SetInput(YamahaInputs input)
         {
             var status = false;
             var inputSwitch = "<YAMAHA_AV cmd=\"PUT\" ><Main_Zone><Input><Input_Sel>{0}</Input_Sel></Input></Main_Zone></YAMAHA_AV>";

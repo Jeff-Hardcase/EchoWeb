@@ -29,10 +29,8 @@ namespace EchoWeb.Controllers
 
         // POST api/alexa
         [HttpPost]
-        public Boolean Post(testModel model)
+        public Boolean Post()
         {
-            log.Info("POST - value: " + model.testValue + ", key: " + model.testKey);
-
             return true;
         }
 

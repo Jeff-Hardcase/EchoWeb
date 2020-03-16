@@ -15,7 +15,8 @@ namespace EchoWeb.Models.Google
 
     public class Parameters
     {
-        public string param { get; set; }
+        public string target { get; set; }
+
     }
 
     public class Text
@@ -54,7 +55,7 @@ namespace EchoWeb.Models.Google
         public List<RequestFulfillmentMessage> fulfillmentMessages { get; set; }
         public List<OutputContext> outputContexts { get; set; }
         public Intent intent { get; set; }
-        public int intentDetectionConfidence { get; set; }
+        public decimal intentDetectionConfidence { get; set; }
         public DiagnosticInfo diagnosticInfo { get; set; }
         public string languageCode { get; set; }
     }

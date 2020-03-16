@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using NLog;
 using EchoWeb.Models.Google;
+using EchoWeb.Models.Repositories;
 
 namespace EchoWeb.Controllers
 {
@@ -26,10 +27,10 @@ namespace EchoWeb.Controllers
         }
 
         // POST: api/Jarvis
-        public HttpResponseMessage Post(DeviceRequest request)
+        public HttpResponseMessage Post([FromBody]DeviceRequest request)
         {
-            var response = new DeviceResponse();
-            response.fulfillmentText = "Look on my works, ye Mighty, and despair!";
+            var _repo = new JarvisRepository();
+            var response = _repo.SetYamahaInput(request);
             
             return Request.CreateResponse(HttpStatusCode.OK, response);
         }

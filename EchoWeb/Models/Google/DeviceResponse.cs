@@ -49,7 +49,7 @@ namespace EchoWeb.Models.Google
         public List<Item> items { get; set; }
     }
 
-    public class Google
+    public class GoogleResponse
     {
         public bool expectUserResponse { get; set; }
         public RichResponse richResponse { get; set; }
@@ -67,7 +67,7 @@ namespace EchoWeb.Models.Google
 
     public class Payload
     {
-        public Google google { get; set; }
+        public GoogleResponse google { get; set; }
         public Facebook facebook { get; set; }
         public Slack slack { get; set; }
     }

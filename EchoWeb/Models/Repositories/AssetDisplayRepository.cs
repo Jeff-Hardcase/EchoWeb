@@ -24,7 +24,7 @@ namespace EchoWeb.Models.Repositories
             result = CreateCommandFile(location);
 
             if (location == "LivingRoom" || location == "Frankenstein")
-                yamahaResult = yamaha.SwitchInput(YamahaInputs.Computer);
+                yamahaResult = yamaha.SetInput(YamahaInputs.Computer);
 
             return result && yamahaResult;
         }
